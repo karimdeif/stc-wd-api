@@ -34,7 +34,7 @@ app.get('/query', function (req, res) {
       collectionIds: [collection_ddos]
     };
 
-    discovery.query(params)
+    discovery_manages_ddos.query(params)
     .then(response => {
       console.log(JSON.stringify(response.result, null, 2));
       res.end( response.result );
