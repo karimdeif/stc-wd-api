@@ -53,10 +53,22 @@ app.get('/query', function (req, res) {
     console.log('error:', err);
   });
   */
- const listCollectionsParams = {
+ const queryParams = {
    environmentId: 'default',
+   collectionId: 'f50dcb3d-e350-7fc6-0000-01737e03fa67',
+   query: 'packages and prices',
  };
  
+ discovery_manages_ddos.query(queryParams)
+  .then(queryResponse => {
+    //console.log(JSON.stringify(queryResponse, null, 2));
+    res.end( JSON.stringify(queryResponse.result, null, 2) );    
+  })
+  .catch(err => {
+    console.log('error:', err);
+  });
+
+ /*
  discovery_manages_ddos.listCollections(listCollectionsParams)
    .then(listCollectionsResponse => {
      console.log(JSON.stringify(listCollectionsResponse, null, 2));
@@ -64,7 +76,7 @@ app.get('/query', function (req, res) {
    .catch(err => {
      console.log('error:', err);
    });
-
+*/
    /*
    const params = {
       projectId: project_stc,
