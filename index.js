@@ -8,7 +8,7 @@ const { CloudPakForDataAuthenticator } = require('ibm-watson/auth');
 
 app.get('/query', function (req, res) {
 
-   console.log('Entered query call 10');
+   console.log('Entered query call 12');
    let project_stc = 'f0db0abe-d796-4eed-8cb0-93c68c9f2e52';    
    let collection_ddos = 'f50dcb3d-e350-7fc6-0000-01737e03fa67';
    
@@ -40,8 +40,11 @@ app.get('/query', function (req, res) {
      disableSslVerification: true,
    });
 
-   console.log('Entered query call 11');
+   console.log('Entered query call 13');
 
+
+
+   /*
    discovery_manages_ddos.listEnvironments()
   .then(listEnvironmentsResponse => {
     console.log(JSON.stringify(listEnvironmentsResponse, null, 2));
@@ -49,6 +52,18 @@ app.get('/query', function (req, res) {
   .catch(err => {
     console.log('error:', err);
   });
+  */
+ const listCollectionsParams = {
+   environmentId: 'default',
+ };
+ 
+ discovery_manages_ddos.listCollections(listCollectionsParams)
+   .then(listCollectionsResponse => {
+     console.log(JSON.stringify(listCollectionsResponse, null, 2));
+   })
+   .catch(err => {
+     console.log('error:', err);
+   });
 
    /*
    const params = {
