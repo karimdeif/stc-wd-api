@@ -18,7 +18,7 @@ app.get('/query', function (req, res) {
             url: 'https://zen-cpd-zen.apps.cpd-wdemo.demo.ibmcloudpack.com:443',
      }),
      url: 'https://zen-cpd-zen.apps.cpd-wdemo.demo.ibmcloudpack.com:443/discovery/core/instances/f0db0abe-d796-4eed-8cb0-93c68c9f2e52/api',
-     disableSslVerification: true
+     disableSslVerification: true,
    });
 
    /*
