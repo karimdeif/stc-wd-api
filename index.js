@@ -8,7 +8,7 @@ const { CloudPakForDataAuthenticator } = require('ibm-watson/auth');
 
 app.get('/query', function (req, res) {
 
-   console.log('Entered query call 5');
+   console.log('Entered query call 6');
    let project_stc = 'f0db0abe-d796-4eed-8cb0-93c68c9f2e52';    
    let collection_ddos = 'f50dcb3d-e350-7fc6-0000-01737e03fa67';
    
@@ -39,7 +39,7 @@ app.get('/query', function (req, res) {
      disableSslVerification: true,
    });
 
-   console.log('Entered query call 6');
+   console.log('Entered query call 7');
 
    discovery_manages_ddos.listEnvironments()
   .then(listEnvironmentsResponse => {
