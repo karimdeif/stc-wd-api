@@ -7,20 +7,35 @@ const { CloudPakForDataAuthenticator } = require('ibm-watson/auth');
 
 app.get('/query', function (req, res) {
 
-   console.log('Entered query call');
+   console.log('Entered query call 2');
    let project_stc = 'f0db0abe-d796-4eed-8cb0-93c68c9f2e52';    
    let collection_ddos = 'f50dcb3d-e350-7fc6-0000-01737e03fa67';
    
+   /*
+   const { BearerTokenAuthenticator } = require('../../dist/auth');
+   const DiscoveryV2 = require('../../dist/discovery/v2');
+   const authHelper = require('../resources/auth_helper.js');
+   
+   const options = authHelper.auth.discoveryV2;
+   options.version = '2019-11-11';
+   options.disableSslVerification = true;
+   options.authenticator = new BearerTokenAuthenticator({
+     bearerToken: options.bearerToken,
+   });
+ 
+   const discovery = new DiscoveryV2(options);
+   
+   */
+
    const discovery_manages_ddos = new DiscoveryV2({
-            version: '2019-11-22',
+            version: '2019-11-11',
             authenticator: new CloudPakForDataAuthenticator({
             username: 'admin',
             password: 'password',
-            url: 'https://zen-cpd-zen.apps.cpd-wdemo.demo.ibmcloudpack.com:443',
-            disableSSLVerification : true,                  
+            url: 'https://zen-cpd-zen.apps.cpd-wdemo.demo.ibmcloudpack.com:443',                           
      }),
      url: 'https://zen-cpd-zen.apps.cpd-wdemo.demo.ibmcloudpack.com/discovery/core/instances/1589439404193/api',
-     disableSSLVerification : true, 
+     disableSslVerification: true,
    });
 
    /*
