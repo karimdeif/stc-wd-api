@@ -15,10 +15,11 @@ app.get('/query', function (req, res) {
             authenticator: new CloudPakForDataAuthenticator({
             username: 'admin',
             password: 'password',
-            url: 'https://zen-cpd-zen.apps.cpd-wdemo.demo.ibmcloudpack.com:443',           
+            url: 'https://zen-cpd-zen.apps.cpd-wdemo.demo.ibmcloudpack.com:443',
+            disableSSLVerification : true,                  
      }),
      url: 'https://zen-cpd-zen.apps.cpd-wdemo.demo.ibmcloudpack.com/discovery/core/instances/1589439404193/api',
-     disableSslVerification: true,
+     disableSSLVerification : true, 
    });
 
    /*
