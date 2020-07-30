@@ -30,10 +30,13 @@ app.post('/query', jsonParser, function (req, res) {
    //let collection_safelink  = 'e9ef8ca7-154c-f424-0000-01739ee3414a' ;  
    //let collection_infomind  = 'e9ef8ca7-154c-f424-0000-01739ee1a54c';   
 
-   let collection_ddos      = 'f50dcb3d-e350-7fc6-0000-01737d9bb618';
-   let collection_safelink  = 'e9ef8ca7-154c-f424-0000-01739ee3414a' ;  
-   let collection_infomind  = 'f50dcb3d-e350-7fc6-0000-01737dd20e25';   
+   //let collection_ddos      = 'f50dcb3d-e350-7fc6-0000-01737d9bb618';
+   //let collection_safelink  = 'e9ef8ca7-154c-f424-0000-01739ee3414a' ;  
+   //let collection_infomind  = 'f50dcb3d-e350-7fc6-0000-01737dd20e25';   
 
+   let collection_ddos      = 'f50dcb3d-e350-7fc6-0000-01737e03fa67';
+   let collection_safelink  = 'f50dcb3d-e350-7fc6-0000-01737dd2d5e5' ;  
+   let collection_infomind  = 'f50dcb3d-e350-7fc6-0000-01737df208f7';   
 
    let selected_collection = '';
 
