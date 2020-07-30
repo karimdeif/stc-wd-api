@@ -74,9 +74,17 @@ app.post('/query', jsonParser, function (req, res) {
   console.log('going to WD with:');
   console.log(queryParams);
   
+  let ret_subtitle = '';
+  let ret_html_table = '';
+  let ret_title = '';
+  let ret_text = '';
+
   discovery.query(queryParams)
     .then(queryResponse => {
-      console.log(JSON.stringify(queryResponse, null, 2));
+      console.log(JSON.stringify(queryResponse.result, null, 2));
+
+      //let ret_result = JSON.parse(queryResponse.result);
+
       res.end( JSON.stringify(queryResponse.result, null, 2) );    
     })
     .catch(err => {
