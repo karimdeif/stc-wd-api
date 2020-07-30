@@ -3,16 +3,18 @@ const bodyParser = require("body-parser");
 const router = express.Router();
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true  }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false  }));
+//app.use(bodyParser.json());
+
+var jsonParser = bodyParser.json();
 
 const DiscoveryV1 = require('ibm-watson/discovery/v1');
 const { CloudPakForDataAuthenticator } = require('ibm-watson/auth');
 
-app.post('/query', function (req, res) {
+app.post('/query', jsonParser, function (req, res) {
 
    console.log('test 21');
-   
+
    let req_search_entity = req.body.search_entity;
    let req_search_query = req.body.search_query;
    
