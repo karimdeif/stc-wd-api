@@ -82,15 +82,14 @@ app.post('/query', jsonParser, function (req, res) {
   discovery.query(queryParams)
     .then(queryResponse => {
       console.log(JSON.stringify(queryResponse.result, null, 2));
-
-      //let ret_result = JSON.parse(queryResponse.result);
-
       res.end( JSON.stringify(queryResponse.result, null, 2) );    
     })
     .catch(err => {
       console.log('error:', err);
     });
 })
+
+console.log('Return from WD');
 
 var server = app.listen(8080, function () {
    var host = server.address().address
