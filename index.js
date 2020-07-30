@@ -11,13 +11,37 @@ const { CloudPakForDataAuthenticator } = require('ibm-watson/auth');
 
 app.post('/query', function (req, res) {
 
-  console.log('body: ', req.body);
-   console.log('query-param: ', req.body.queryparam);
-
-   let project_stc = 'f0db0abe-d796-4eed-8cb0-93c68c9f2e52';    
-   let collection_ddos = 'f50dcb3d-e350-7fc6-0000-01737e03fa67';
+   let req_search_entity = req.body.search_entity;
+   let req_search_query = req.body.search_query;
    
-   const discovery_manages_ddos = new DiscoveryV1({
+   console.log('body: ', req.body);
+   console.log('search_entity: ', req_search_entity);
+   console.log('search_query: ', req_search_query);
+   
+   //let collection_ddos      = 'f50dcb3d-e350-7fc6-0000-01737e03fa67';      
+   //let collection_safelink  = 'f50dcb3d-e350-7fc6-0000-01737db75b7c' ;  
+   //let collection_infomind  = 'f50dcb3d-e350-7fc6-0000-01737dd20e25';
+
+   let collection_ddos      = 'e9ef8ca7-154c-f424-0000-01739ee0e6dc';
+   let collection_safelink  = 'e9ef8ca7-154c-f424-0000-01739ee3414a' ;  
+   let collection_infomind  = 'e9ef8ca7-154c-f424-0000-01739ee1a54c';   
+   
+   let selected_collection = '';
+
+   if ((/ddos/i).test(req_search_entity)) {
+    console.log('Found entity ddos');
+    selected_collection = collection_ddos;
+
+   } else if((/safe link/i).test(req_search_entity)) {
+    console.log('Found entity Safe Link');
+    selected_collection = collection_safelink;
+
+   } else if ((/infomind/i).test(req_search_entity)) {
+    console.log('Found entity InfoMind');
+    selected_collection = collection_infomind;
+   }
+
+   const discovery = new DiscoveryV1({
             version: '2019-11-11',
             authenticator: new CloudPakForDataAuthenticator({
             username: 'admin',
@@ -29,19 +53,23 @@ app.post('/query', function (req, res) {
      disableSslVerification: true,
    });
 
- const queryParams = {
-   environmentId: 'default',
-   collectionId: 'f50dcb3d-e350-7fc6-0000-01737e03fa67',
-   query: 'packages and prices',
- };
- 
- discovery_manages_ddos.query(queryParams)
-  .then(queryResponse => {
-    res.end( JSON.stringify(queryResponse.result, null, 2) );    
-  })
-  .catch(err => {
-    console.log('error:', err);
-  });
+   const queryParams = {
+    environmentId: 'default',
+    collectionId: selected_collection,
+    query: req_search_query,
+  };
+
+  console.log('going to WD with:');
+  console.log(queryParams);
+  
+  discovery.query(queryParams)
+    .then(queryResponse => {
+      console.log(JSON.stringify(queryResponse, null, 2));
+      res.end( JSON.stringify(queryResponse.result, null, 2) );    
+    })
+    .catch(err => {
+      console.log('error:', err);
+    });
 })
 
 var server = app.listen(8080, function () {
