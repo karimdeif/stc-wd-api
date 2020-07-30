@@ -82,7 +82,10 @@ app.post('/query', jsonParser, function (req, res) {
   discovery.query(queryParams)
     .then(queryResponse => {
       console.log(JSON.stringify(queryResponse.result, null, 2));
-      res.end( JSON.stringify(queryResponse.result, null, 2) );    
+
+      //res.setHeader('Content-Type', 'application/json');
+      res.json(queryResponse.result)
+      //res.end( JSON.stringify(queryResponse.result, null, 2) );    
     })
     .catch(err => {
       console.log('error:', err);
