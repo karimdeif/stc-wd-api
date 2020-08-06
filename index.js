@@ -36,7 +36,8 @@ app.post('/query', jsonParser, function (req, res) {
 
    let collection_ddos      = 'f50dcb3d-e350-7fc6-0000-01737e03fa67';
    let collection_safelink  = 'f50dcb3d-e350-7fc6-0000-01737dd2d5e5' ;  
-   let collection_infomind  = 'f50dcb3d-e350-7fc6-0000-01737df208f7';   
+   let collection_infomind  = 'f50dcb3d-e350-7fc6-0000-01737df208f7'; 
+   let collection_misc      = '5ebfcb23-5fa0-6692-0000-0173bee1a2a8';  
 
    let selected_collection = '';
 
@@ -51,6 +52,10 @@ app.post('/query', jsonParser, function (req, res) {
    } else if ((/infomind/i).test(req_search_entity)) {
     console.log('Found entity InfoMind');
     selected_collection = collection_infomind;
+
+   } else if ((/misc/i).test(req_search_entity)) {
+    console.log('Found entity Misc');
+    selected_collection = collection_misc;
    }
 
    const discovery = new DiscoveryV1({
