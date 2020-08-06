@@ -38,7 +38,7 @@ app.post('/query', jsonParser, function (req, res) {
    let collection_safelink  = 'f50dcb3d-e350-7fc6-0000-01737dd2d5e5' ;  
    let collection_infomind  = 'f50dcb3d-e350-7fc6-0000-01737df208f7'; 
    let collection_misc      = '5ebfcb23-5fa0-6692-0000-0173bee1a2a8'; 
-   let collection_sec_pak   = '5ebfcb23-5fa0-6692-0000-0173bfab2555'; 
+   let collection_sec_pak   = '5ebfcb23-5fa0-6692-0000-0173c290fb1a'; 
 
    let selected_collection = '';
 
