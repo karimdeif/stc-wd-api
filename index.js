@@ -54,12 +54,12 @@ app.post('/query', jsonParser, function (req, res) {
     console.log('Found entity InfoMind');
     selected_collection = collection_infomind;
 
-   } else if ((/misc/i).test(req_search_entity)) {
+   } else if ((/stcs misc/i).test(req_search_entity)) {
     console.log('Found entity Misc');
     selected_collection = collection_misc;
    }
 
-   else if ((/security/i).test(req_search_entity)) {
+   else if ((/security pak/i).test(req_search_entity)) {
     console.log('Found entity Security Pak');
     selected_collection = collection_sec_pak;
    }
