@@ -1,0 +1,3 @@
+applications:
+- name: stc-wd-api
+  memory: 128M
